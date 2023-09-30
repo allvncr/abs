@@ -1,8 +1,10 @@
 <template>
-  <Navbar />
-  <RouterView />
-  <SocialBar />
-  <FooterBar />
+  <div id="#app">
+    <Navbar />
+    <RouterView />
+    <SocialBar />
+    <FooterBar />
+  </div>
 </template>
 
 <script setup>

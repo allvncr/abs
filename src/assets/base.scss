@@ -49,3 +49,20 @@ main {
   margin-left: auto;
   margin-right: auto;
 }
+
+// .p-galleria-thumbnail-item {
+//   flex: inherit !important;
+// }
+
+.p-galleria-thumbnail-prev,
+.p-galleria-thumbnail-next {
+  color: #000 !important;
+}
+
+.p-galleria .p-galleria-thumbnail-container {
+  background-color: #fff !important;
+}
+
+.p-galleria-thumbnail-item-active {
+  flex: none !important;
+}

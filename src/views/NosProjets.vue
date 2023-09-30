@@ -1,10 +1,39 @@
 <template>
-  <main></main>
+  <main>
+    <h1>Nos Projets</h1>
+    <div class="container">
+      <Galleria
+        :value="images"
+        containerStyle="max-width: 640px;margin:auto;"
+        :showItemNavigators="true"
+        :circular="true"
+        :numVisible="5"
+      >
+        <template #item="{ item }">
+          <Image :src="item.url" :alt="item.title" imageStyle="width: 100%" />
+        </template>
+        <template #thumbnail="slotProps">
+          <img
+            class="thumbnail"
+            :src="slotProps.item.url"
+            :alt="slotProps.item.title"
+          />
+        </template>
+      </Galleria>
+    </div>
+  </main>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+
+//images
+import social from "../assets/projets/social.png";
+import construction from "../assets/projets/construction.png";
+import formation from "../assets/projets/formation.png";
+import evangelisation from "../assets/projets/evangelisation.png";
+import soutien from "../assets/projets/soutien.png";
 
 const router = useRouter();
 
@@ -12,9 +41,64 @@ const router = useRouter();
 const updatePageTitle = () => {
   document.title = router.currentRoute.value.meta.title;
 };
+const images = ref([
+  {
+    title: "social",
+    url: social,
+  },
+  {
+    title: "construction",
+    url: construction,
+  },
+  {
+    title: "formation",
+    url: formation,
+  },
+  {
+    title: "evangelisation",
+    url: evangelisation,
+  },
+  {
+    title: "soutien",
+    url: soutien,
+  },
+]);
+
+const responsiveOptions = ref([
+  {
+    breakpoint: "989px",
+    numVisible: 3,
+  },
+  {
+    breakpoint: "749px",
+    numVisible: 3,
+  },
+]);
 
 // Utilisez le hook onMounted pour mettre à jour le titre lors du chargement initial
 onMounted(() => {
   updatePageTitle();
 });
 </script>
+
+<style lang="scss" scoped>
+main {
+  margin-top: 64px;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+  color: #d55342;
+  letter-spacing: 3px;
+  padding: 12px 0 24px;
+}
+
+.thumbnail {
+  min-width: 120px;
+  height: 100px;
+}
+</style>
