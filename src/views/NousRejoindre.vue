@@ -2,7 +2,7 @@
   <main>
     <h1 data-aos="fade-up">Soutenez nous</h1>
 
-    <div class="block" data-aos="fade-up" data-aos-delay="500">
+    <div class="block" data-aos="fade-up" data-aos-delay="300">
       <div class="illustration">
         <img src="../assets/Pray.webp" alt="En priant" />
       </div>
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <div class="block" data-aos="fade-up" data-aos-delay="1000">
+    <div class="block" data-aos="fade-up" data-aos-delay="800">
       <div class="illustration">
         <img src="../assets/Bénévole.webp" alt="En vous engageant" />
       </div>

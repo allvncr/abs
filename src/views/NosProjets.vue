@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h1>Nos Projets</h1>
-    <div class="container">
+    <h1 data-aos="fade-up" data-aos-delay="300">Nos Projets</h1>
+    <div class="container" data-aos="fade-up" data-aos-delay="1000">
       <Galleria
         :value="images"
         containerStyle="max-width: 640px;margin:auto;"
@@ -27,6 +27,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
+import AOS from "aos";
 
 //images
 import social from "../assets/projets/social.png";
@@ -62,27 +63,33 @@ const images = ref([
     title: "soutien",
     url: soutien,
   },
-]);
-
-const responsiveOptions = ref([
   {
-    breakpoint: "989px",
-    numVisible: 3,
+    title: "evangelisation",
+    url: evangelisation,
   },
   {
-    breakpoint: "749px",
-    numVisible: 3,
+    title: "soutien",
+    url: soutien,
   },
 ]);
 
 // Utilisez le hook onMounted pour mettre à jour le titre lors du chargement initial
 onMounted(() => {
   updatePageTitle();
+
+  // Initialisez AOS avec les options souhaitées
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
 });
 </script>
 
 <style lang="scss" scoped>
 main {
+  @media screen and (max-width: 989px) {
+    margin-top: 0;
+  }
   margin-top: 64px;
   padding: 15px;
 }

@@ -1,6 +1,11 @@
 <template>
   <section>
-    <div class="story" style="padding: 8px 0 0">
+    <div
+      class="story"
+      style="padding: 8px 0 0"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
       <div class="context">
         <h1>Notre Histoire</h1>
         <p>
@@ -116,6 +121,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
+import AOS from "aos";
 
 const router = useRouter();
 
@@ -127,6 +133,12 @@ const updatePageTitle = () => {
 // Utilisez le hook onMounted pour mettre à jour le titre lors du chargement initial
 onMounted(() => {
   updatePageTitle();
+
+  // Initialisez AOS avec les options souhaitées
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
 });
 </script>
 

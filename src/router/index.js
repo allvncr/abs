@@ -36,6 +36,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/blog/:slug",
+      name: "Post",
+      component: () => import("../views/BlogDetail.vue"),
+      meta: {
+        title: "Post | asso chrétienne ABS",
+      },
+    },
+    {
       path: "/nous-rejoindre",
       name: "Agir à nos cotés",
       component: () => import("../views/NousRejoindre.vue"),

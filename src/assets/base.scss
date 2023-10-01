@@ -66,3 +66,12 @@ main {
 .p-galleria-thumbnail-item-active {
   flex: none !important;
 }
+
+.p-toast-message-content {
+  .p-icon {
+    display: none !important;
+  }
+  .p-toast-message-text {
+    padding: 8px;
+  }
+}
