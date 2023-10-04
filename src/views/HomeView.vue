@@ -38,7 +38,7 @@
           </p>
           <router-link to="/blog">Voir plus...</router-link>
         </div>
-        <div class="div">
+        <div class="image">
           <img src="../assets/hbd.webp" alt="nos10ans" />
         </div>
       </div>
@@ -88,7 +88,7 @@
     <div class="container">
       <div class="bglayer">
         <span> DONNER POUR SOUTENIR LA MISSION</span>
-        <span>Faire un Don!</span>
+        <router-link to="/dons">Faire un Don!</router-link>
       </div>
     </div>
   </section>
@@ -138,9 +138,16 @@ section {
 
 .container {
   max-width: 1600px;
+  @media screen and (max-width: 749px) {
+    padding: 0;
+  }
 }
 
 .carousel {
+  @media screen and (max-width: 749px) {
+    height: 300px;
+    background-size: cover;
+  }
   background-image: url(../assets/carousel.webp);
   height: 75vh;
   width: 100%;
@@ -149,6 +156,10 @@ section {
   background-position: center 30%;
 
   p {
+    @media screen and (max-width: 749px) {
+      width: 100%;
+      font-size: 18px;
+    }
     color: #fff;
     width: 50%;
     margin: auto;
@@ -166,14 +177,27 @@ section {
   flex-wrap: wrap;
 
   .col-7 {
+    @media screen and (max-width: 749px) {
+      width: 100%;
+      height: 300px;
+      padding: 15px 0;
+    }
     width: 60%;
     height: 408px;
   }
   .col-5 {
+    @media screen and (max-width: 749px) {
+      width: 100%;
+      height: 300px;
+      padding: 15px 0;
+    }
     width: 40%;
     height: 408px;
   }
   .grey {
+    @media screen and (max-width: 989px) {
+      padding: 0 15px;
+    }
     background-color: #eaeae8;
     display: flex;
     flex-direction: column;
@@ -182,6 +206,9 @@ section {
     padding: 0 10%;
 
     h2 {
+      @media screen and (max-width: 749px) {
+        font-size: 18px;
+      }
       text-transform: uppercase;
       font-size: 32px;
       font-weight: 700;
@@ -190,6 +217,9 @@ section {
     }
 
     p {
+      @media screen and (max-width: 749px) {
+        font-size: 12px;
+      }
       font-size: 14px;
       margin-bottom: 8px;
       font-weight: 300;
@@ -202,6 +232,9 @@ section {
     }
   }
   .red {
+    @media screen and (max-width: 989px) {
+      padding: 0 15px;
+    }
     background-color: #c36054;
     display: flex;
     flex-direction: column;
@@ -210,6 +243,9 @@ section {
     padding: 0 10%;
 
     h2 {
+      @media screen and (max-width: 749px) {
+        font-size: 18px;
+      }
       text-align: center;
       text-transform: uppercase;
       font-size: 32px;
@@ -229,6 +265,14 @@ section {
     }
   }
   .green {
+    @media screen and (max-width: 989px) {
+      padding: 0 15px;
+    }
+    .image {
+      @media screen and (max-width: 1400px) {
+        display: none;
+      }
+    }
     background-color: #45b29d;
     display: flex;
     gap: 12px;
@@ -237,6 +281,9 @@ section {
     padding: 0 10%;
 
     h2 {
+      @media screen and (max-width: 749px) {
+        font-size: 18px;
+      }
       text-transform: uppercase;
       font-size: 32px;
       font-weight: 700;
@@ -245,6 +292,9 @@ section {
     }
 
     p {
+      @media screen and (max-width: 749px) {
+        font-size: 12px;
+      }
       font-size: 14px;
       font-weight: 300;
       margin-bottom: 8px;
@@ -258,6 +308,9 @@ section {
     }
   }
   .blue {
+    @media screen and (max-width: 989px) {
+      padding: 0 15px;
+    }
     background-color: #254151;
     display: flex;
     flex-direction: column;
@@ -266,6 +319,9 @@ section {
     padding: 0 10%;
 
     h2 {
+      @media screen and (max-width: 749px) {
+        font-size: 18px;
+      }
       text-align: center;
       text-transform: uppercase;
       font-size: 32px;
@@ -287,10 +343,16 @@ section {
 }
 
 .projets {
+  @media screen and (max-width: 749px) {
+    padding: 32px 0;
+  }
   padding: 64px;
   text-align: center;
 
   h2 {
+    @media screen and (max-width: 749px) {
+      font-size: 18px;
+    }
     text-transform: uppercase;
     font-size: 32px;
     font-weight: 700;
@@ -308,12 +370,22 @@ section {
 }
 
 .bglayer {
+  @media screen and (max-width: 989px) {
+    background-blend-mode: normal;
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 749px) {
+    background-color: rgba(#c36054, 1);
+  }
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
   height: 152px;
-  background-color: rgba(#c36054, 0.5);
+  background-color: rgba(#c36054, 0.8);
   background-image: url(/src/assets/bglayer.webp);
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -321,9 +393,19 @@ section {
   background-attachment: fixed;
   background-blend-mode: soft-light;
   color: #fff;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
+
+  a {
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 8px 32px;
+    color: #c36054;
+    font-size: 14px;
+    border-radius: 25px;
+  }
 }
 
 .swiper {

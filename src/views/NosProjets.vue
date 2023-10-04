@@ -157,7 +157,7 @@ h1 {
 
 .mySwiper .swiper-slide {
   width: 25%;
-  height: 100%;
+  height: auto;
   opacity: 0.4;
 }
 
@@ -168,7 +168,7 @@ h1 {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 </style>
