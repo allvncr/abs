@@ -1,26 +1,36 @@
 <template>
   <main>
     <h1 data-aos="fade-up" data-aos-delay="300">Nos Projets</h1>
-    <div class="container" data-aos="fade-up" data-aos-delay="1000">
-      <Galleria
-        :value="images"
-        containerStyle="max-width: 640px;margin:auto;"
-        :showItemNavigators="true"
-        :circular="true"
-        :numVisible="5"
-      >
-        <template #item="{ item }">
-          <Image :src="item.url" :alt="item.title" imageStyle="width: 100%" />
-        </template>
-        <template #thumbnail="slotProps">
-          <img
-            class="thumbnail"
-            :src="slotProps.item.url"
-            :alt="slotProps.item.title"
-          />
-        </template>
-      </Galleria>
-    </div>
+    <swiper
+      :style="{
+        '--swiper-navigation-color': '#fff',
+        '--swiper-pagination-color': '#fff',
+      }"
+      :loop="true"
+      :spaceBetween="10"
+      :navigation="true"
+      :thumbs="{ swiper: thumbsSwiper }"
+      :modules="modules"
+      class="mySwiper2"
+    >
+      <swiper-slide v-for="image in images" :key="image.title">
+        <img :src="image.url" :alt="image.title" />
+      </swiper-slide>
+    </swiper>
+    <swiper
+      @swiper="setThumbsSwiper"
+      :loop="true"
+      :spaceBetween="10"
+      :slidesPerView="4"
+      :freeMode="true"
+      :watchSlidesProgress="true"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="image in images" :key="image.title">
+        <img :src="image.url" :alt="image.title" />
+      </swiper-slide>
+    </swiper>
   </main>
 </template>
 
@@ -29,6 +39,26 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import AOS from "aos";
 
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+// import required modules
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+
+const thumbsSwiper = ref(null);
+
+const setThumbsSwiper = (swiper) => {
+  thumbsSwiper.value = swiper;
+};
+
+const modules = [FreeMode, Navigation, Thumbs];
 //images
 import social from "../assets/projets/social.png";
 import construction from "../assets/projets/construction.png";
@@ -54,14 +84,6 @@ const images = ref([
   {
     title: "formation",
     url: formation,
-  },
-  {
-    title: "evangelisation",
-    url: evangelisation,
-  },
-  {
-    title: "soutien",
-    url: soutien,
   },
   {
     title: "evangelisation",
@@ -104,8 +126,49 @@ h1 {
   padding: 12px 0 24px;
 }
 
-.thumbnail {
-  min-width: 120px;
-  height: 100px;
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+
+  img {
+    max-width: 600px;
+    height: auto;
+    margin: auto;
+  }
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

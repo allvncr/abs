@@ -50,6 +50,38 @@
 
     <div class="container projets">
       <h2>Nos Projects</h2>
+      <swiper
+        :effect="'coverflow'"
+        :grabCursor="true"
+        :centeredSlides="true"
+        :slidesPerView="'auto'"
+        :coverflowEffect="{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }"
+        :pagination="true"
+        :modules="modules"
+        class="mySwiper"
+      >
+        <swiper-slide>
+          <img src="../assets/projets/construction.png" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="../assets/projets/evangelisation.png" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="../assets/projets/formation.png" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="../assets/projets/social.png" />
+        </swiper-slide>
+        <swiper-slide>
+          <img src="../assets/projets/soutien.png" />
+        </swiper-slide>
+      </swiper>
       <router-link to="/nos-projets">Voir tous nos projets</router-link>
     </div>
 
@@ -65,6 +97,19 @@
 <script setup>
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
+
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+const modules = [EffectCoverflow, Pagination];
+
+// import required modules
 
 const router = useRouter();
 
@@ -279,5 +324,24 @@ section {
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 400px;
+  box-shadow: none;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
 }
 </style>
