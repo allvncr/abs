@@ -371,25 +371,26 @@ section {
 
 .bglayer {
   @media screen and (max-width: 989px) {
-    background-blend-mode: normal;
     flex-direction: column;
     padding: 15px;
     text-align: center;
     font-size: 18px;
+    background-position: center 5%;
   }
   @media screen and (max-width: 749px) {
+    background-blend-mode: normal;
     background-color: rgba(#c36054, 1);
   }
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
-  height: 152px;
+  height: 164px;
   background-color: rgba(#c36054, 0.8);
   background-image: url(/src/assets/bglayer.webp);
   background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: center -60%;
+  background-position: center 10%;
   background-attachment: fixed;
   background-blend-mode: soft-light;
   color: #fff;
